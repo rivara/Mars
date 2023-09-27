@@ -1,3 +1,3 @@
 
 import './bootstrap';
-import './components/Example';
+import './components/Example2';

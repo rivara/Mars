@@ -1,24 +1,50 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+              
+                 
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}zzz
-                  
-                </div>
-            </div>
+    <div class="row">
+        <!-- VALIDATION -->
+        <div class="col-md-12">
+          
+                    <div id="message" class="alert alert-danger  alert-dismissible" role="alert" >
+                        Must be oltther tan 18 :(
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>     
+                    </div>
+           
+                    <!-- <div id="message" class="alert alert-danger  alert-dismissible" role="alert" >
+                    This apartament is reserved :(
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    </div>
+              
+                    <div id="message" class="alert alert-success  alert-dismissible" role="alert" >
+                    The request must be approved :)
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    </div>
+                   -->
+        </div>  
+        
+         <!-- #VALIDATION -->
+       <!-- APARTAMENT SEARCH--> 
+       <div class="col-md-6">
+                REACT <div id="example"></div>  
+            
         </div>
-    </div>
+       
+       <div class="col-md-6"></div>
+   <!--# APARTAMENT SEARCH-->
+
+        <div class="col-md-12"><br></div>                        
+        <!-- APARTAMENT LIST-->
+     
+
+          
+    </div>               
 </div>
+
+
+
 @endsection

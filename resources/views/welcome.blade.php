@@ -11,30 +11,51 @@
         @vite(['resources/sass/app.scss', 'resources/js/app.js','resources/css/app.css'])
     </head>
     <body>
-        <div  id="wrapping">
-                <nav  class="navbar" >
-                    <ul>
-                        @auth
-                            <li> <a class="nav-link"  href="{{ url('/home') }}" >Home</a></li>
-                        @else
-                            <li><a class="nav-link"  href="{{ route('login') }}">Log in</a></li>
-                            @if (Route::has('register'))
-                                <li> <a class="nav-link"  href="{{ route('register') }}">Register</a></li>
-                            @endif
-                        @endauth
-                    </ul>
-                </nav>
-            </div>
-        <br>
+    <nav class="navbar navbar-expand-md navbar-light ">
+            <!-- Left Side Of Navbar -->
             
-            <div id="hero">
-         
-                    <section class="d-flex flex-column justify-content-center align-items-center">
-                        <div class="container text-center text-md-left" data-aos="fade-up">
-                            <h1>Welcome </h1>
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ms-auto">
+                <!-- Authentication Links -->
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                    @endif
+
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </div>
-                    </section>
-                </div>    
-          
+                    </li>
+                @endguest
+            </ul>
+        </nav>
+         <div id="hero">
+                <section class="d-flex flex-column justify-content-center align-items-center" >
+                    <div class="container text-center"  data-aos="fade-up">
+                        <h1>Welcome </h1>
+                    </div>
+                </section>
+          </div>   
     </body>
 </html>

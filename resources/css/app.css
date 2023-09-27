@@ -10,11 +10,7 @@
 # General
 --------------------------------------------------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins');
-body {
-    font-family: "Open Sans", sans-serif;
-    color: #000;
-    background:url("../img/hero-bg.jpg");
-  }
+
   
   a {
     color: #000 !important;
@@ -364,14 +360,21 @@ body {
   # Hero Section
   --------------------------------------------------------------*/
  
-  
+  #hero{
+    min-height: 500px;
+    height: 100%;;
+    background:url("../img/hero-bg.jpg");
+  }
   
   #hero h1 {
-    font-weight: 100px;
+    font-weight: 700;
+    font-size: 100px;
+    padding-top: 100px;
+    -webkit-text-stroke: 0.3px black; /* width and color */
     color: #fff;
   }
   
-  
+/*   
   @media (max-width: 992px) {
     #hero {
       height: calc(100vh - 70px);
@@ -390,7 +393,7 @@ body {
       margin-bottom: 30px;
     }
   }
-  
+   */
   /*--------------------------------------------------------------
   # Sections General
   --------------------------------------------------------------*/

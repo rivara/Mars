@@ -1,16 +1,13 @@
 @extends('layouts.app')
-
 @section('content')
-<div class="container">
+<div class="container" id="hero">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
+                      
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
@@ -24,6 +21,15 @@
                                 @enderror
                             </div>
                         </div>
+                          <!-- ADD BIRTHDAY FIELD-->
+                          <div class="row mb-3">
+                            <label for="birthday" class="col-md-4 col-form-label text-md-end">{{__('Age')}}</label>
+
+                            <div class="col-md-3">
+                                <input id="birthday"  type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" required >
+                            </div>
+                        </div>
+                        <!--# BIRTHDAY ADD FIELD-->
 
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
