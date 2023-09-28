@@ -363,9 +363,7 @@ h6 {
   --------------------------------------------------------------*/
 
 #hero {
-  min-height: 500px;
-  height: 100%;
-  ;
+  height: 400px;
   background: url("../img/hero-bg.jpg");
 }
 
@@ -1387,20 +1385,27 @@ section {
   position: relative;
   z-index: 1;
 }
-
+*/
 .property-item .property-content {
-  background: #fff;
+  background-color: #e5e7e9  ;
+  border-radius: 10px;
+  margin-top: 15px;
+  padding-left: 20px;
+  padding-bottom: 10px;
   font-size: 13px;
-  position: relative;
   width: 100%;
   -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05);
-  z-index: 2;
-} */
+} 
 
-.property-item .property-content .price,
-.property-item .property-content .city {
-  font-size: 20px;
+.property-item img{
+  border: 1px solid grey;
+  padding: 5px;
+  border-radius: 10pxs;
+}
+
+.property-item .property-content .price{
+  font-size: 18px;
   font-weight: 700;
   color: #000;
 }
@@ -1409,4 +1414,30 @@ section {
   color: #005555;
 }
 
+.property-item .caption {
+  color: #d5f5e3 ;
+  background-color:#005555 ;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 10px;
+  font-weight:700;
+}
 
+.ml-10{
+  margin-left: 150px;
+}
+
+.btn-house{
+  color: #005555 !important;
+  background: #fff;
+  font-weight: 400;
+}
+
+.btn-house:hover{
+  background: #fff;
+  color: #005555 !important;
+  font-weight: 400;
+  border-color: #005555;
+  border-radius: 1px;
+  border-radius: 10%;
+}

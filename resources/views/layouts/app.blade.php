@@ -59,7 +59,7 @@
                     </ul>
             </div>
         </nav>
-        <main class="py-4 back">
+        <main >
             @yield('content')
         </main>
     </div>
