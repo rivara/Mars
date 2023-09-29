@@ -1,3 +1,4 @@
 
 import './bootstrap';
-import './components/Example2';
+import './components/Action';
+
