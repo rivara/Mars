@@ -18,4 +18,6 @@ use App\Http\Controllers\ActionController;
 //     return $request->user();
 // });
 
-Route::get('/feature', [ActionController::class, 'show']);
+Route::get('/features', [ActionController::class, 'showFeature']);
+Route::get('/apartaments', [ActionController::class, 'apartament']);
+Route::get('/apartaments/{id}', [ActionController::class, 'showApartament']);

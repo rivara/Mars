@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+ 
 
 function Example() {
     return (
@@ -19,7 +19,4 @@ function Example() {
 
 export default Example;
 
-    // const Index = ReactDOM.createRoot(document.getElementById("example"));
-    // Index.render(<Example/>)
-    
-    ReactDOM.createRoot(document.getElementById("example")).render(<Example/>);
+ 

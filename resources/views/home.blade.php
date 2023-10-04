@@ -29,7 +29,7 @@
 			</div>
 		<!--# APARTAMENT SEARCH-->
         <!-- APARTAMENT LIST-->
-           <div class="col-md-3">
+           <!-- <div class="col-md-3">
 			        <div class="property-slider-wrap" >
 						<div class="property-slider">
 							<div class="property-item">
@@ -232,7 +232,7 @@
 								</div>
 							</div> 
                         </div>
-					</div>
+					</div> -->
    		<!-- APARTAMENT LIST-->
 		</div>               
 	</div>
