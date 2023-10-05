@@ -19,19 +19,12 @@ for(var i in features.data)
 
     function MultiSelectDropdown(props) {
   
-  // const [apartaments, setApartaments] = useState(raw.data);
-  // setApartaments(raw.data);
-  // const [selectedOptions, setSelectedOptions] = useState([]);
-  // const handleMultiSelectChange = (selectedOptions) => {
-  //   setSelectedOptions(selectedOptions);
-  //};
-  
+
 
   const [selectedOptions, setSelectedOptions] = useState([]);
   const handleMultiSelectChange = (value) => {
     setSelectedOptions(value);
     props.onValueChange(value)
-    
   };
 
   return (

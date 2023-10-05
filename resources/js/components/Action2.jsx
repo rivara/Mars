@@ -1,39 +1,36 @@
 import React, { useState } from "react";
-import Select from 'react-select';
 
-const features = await axios.get(
-  'http://127.0.0.1:8000/api/features'
+const flatsRaw = await axios.get(
+  'http://127.0.0.1:8000/api/apartaments/1'
 );
-// Endpoints con
 
-var result = [];
-for(var i in features.data)
-    result.push({value:features.data[i].name,label:features.data[i].name });
+const response = await axios.get(`/api/session/${this.roomId}`)
 
-function ChildComponent(props) {
-  const [selectedOptions, setSelectedOptions] = useState([]);
+const [flats, setFlats] = useState(flatsRaw.data);
 
-  // Función para manejar cambios en los valores seleccionados
-  const handleMultiSelectChange = (event) => {
-    // const newSelectedValues = Array.from(event.target.selectedOptions, (option) => option.value);
-    // setSelectedOptions(newSelectedValues);
-    // Llama a la función del padre pasada como prop con los nuevos valores
-    
-    setSelectedOptions(event);
+
+
+
+const ChildTwo = (props) => {
+
+  // Endpoints connection
+
+
+
+
+  return (
+      <div className="child second">
+        <div>
+         <h4>{props.message}</h4>
+
+         {flats.map((flat) => (
+          <p>{flat.id}</p>
+        ))}
+
+
+        </div>
+      </div>
+    );
   };
   
-  return (
-    <div>
-      <div>
-        <Select
-          options={result}
-          isMulti
-           onChange={handleMultiSelectChange}
-           value={selectedOptions}
-        />
-      </div>
-  </div>  
-  );
-}
-
-export default ChildComponent;
+  export default ChildTwo;

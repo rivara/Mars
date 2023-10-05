@@ -1,21 +1,13 @@
 import { useState } from "react";
-import ChildOne from "./Action2";
-import ChildTwo  from "./Frame2";
-import MultiSelectDropdown from "./Action";
-
-
+import ChildOne from "./Action1";
+import ChildTwo  from "./Action2";
 
 
 const Final = () => {
-  const data = "Hola desde el padre"
-
-
-
-  const [childValue, setChildValue] = useState("");
-
-  // Función que se pasará como prop al componente hijo
-  const handleChildValueChange = (value) => {
-    setChildValue(value);
+  const [selectedValues, setSelectedValues] = useState([])
+  // Función para manejar cambios en los valores seleccionados
+  const handleChildValueChange = (newSelectedValues) => {
+    setSelectedValues(newSelectedValues);
   };
 
   return (
@@ -23,7 +15,7 @@ const Final = () => {
       <div className="children-container">
        
         <ChildOne onSelectedValuesChange={handleChildValueChange} />
-        <ChildTwo message={childValue}/>
+        <ChildTwo message={selectedValues}/>
       </div>
     </div>
   );
