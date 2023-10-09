@@ -23,14 +23,15 @@
         </div>  
 		<!-- #VALIDATION -->
 		<!-- APARTAMENT SEARCH--> 
-			<div class="col-md-6 offset-md-6 pb-4">
+			<div class="col-md-12 offset-md-12">
 				<label>Options filter</label>
 					<div id="example"></div>  
 			</div>
 		<!--# APARTAMENT SEARCH-->
         <!-- APARTAMENT LIST-->
            <!-- <div class="col-md-3">
-			        <div class="property-slider-wrap" >
+			       
+		        <div class="property-slider-wrap" >
 						<div class="property-slider">
 							<div class="property-item">
                                 <img src="http://127.0.0.1:8000/storage/img/img_1.jpg" alt="Image" class="img-fluid">
@@ -80,6 +81,9 @@
 							</div> 
                         </div>
 					</div>
+
+
+
 					<div class="col-md-3">
 						<div class="property-slider-wrap" >
 							<div class="property-slider">

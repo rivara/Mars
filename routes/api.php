@@ -20,4 +20,4 @@ use App\Http\Controllers\ActionController;
 
 Route::get('/features', [ActionController::class, 'showFeature']);
 Route::get('/apartaments', [ActionController::class, 'apartament']);
-Route::get('/apartaments/{id}', [ActionController::class, 'showApartament']);
+Route::get('/apartamentsfeature/{id}', [ActionController::class, 'showApartament']);

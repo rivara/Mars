@@ -27,9 +27,18 @@ class ActionController extends Controller
 
     public function showApartament($id)
     {
-        //$features = Feature::find($id);
-        $apartaments = Apartament::find(1);
-        return response()->json($apartaments);//($features->apartaments);
+       $integerIDs = array_map('intval', explode(',', json_decode($id)[0]));
+       $features = Feature::find([$integerIDs]); 
+       $collection = collect([]);
+
+        for($i=0; $i < count($features); $i++){
+           //$features[$i]->apartaments;
+           $collection = $collection->concat($features[$i]->apartaments);
+        }
+        
+        
+   
+       return response()->json($collection);
     }
 
 
