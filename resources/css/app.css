@@ -1429,7 +1429,7 @@ section {
 
 .btn-house{
   color: #005555 !important;
-  background: #fff;
+  background: #fff !important;
   font-weight: 400;
 }
 

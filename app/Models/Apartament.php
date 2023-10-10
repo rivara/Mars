@@ -18,7 +18,7 @@ class Apartament extends Model
 
     public function features()
     {
-        return $this->belongsToMany(Feature::class,'apartament_feature');
+        return $this->belongsToMany(Feature::class);
     }
 
     public function landLord()

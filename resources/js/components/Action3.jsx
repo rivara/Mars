@@ -7,18 +7,16 @@ var myId = "";
 
 const ChildTwo = (props) => {
   const [featuresapartaments, setFeaturesApartaments] = useState([]);
-  const [features, setFeatures] = useState([]);
+
   if (props.id != myId) {
     myId = props.id;
     // Endpoints connection single 
 	 let json=JSON.stringify(props.id);
-	
-	
     axios.get(
-      'http://127.0.0.1:8000/api/apartamentsfeature/' + json
+      'http://127.0.0.1:8000/api/featureapartament/' + json
     ).then(response => {
-      const apartamentsfeatures = response.data
-      setFeaturesApartaments(apartamentsfeatures)
+      const featureapartament = response.data
+      setFeaturesApartaments(featureapartament)
     })
 
 	
@@ -30,11 +28,12 @@ const ChildTwo = (props) => {
 		<div class="container">
 			{props.id}
 				<div class="row">
-				{features.map((feature) => (
+				{featuresapartaments.map((feature) => (
 						
-						<div class="col-md-4">
+						<div class="col-md-12">
 							<span class="caption">
-								<span >#algo</span>
+								<span >{feature.name}</span>
+                
 							</span>
 						</div>
 						
