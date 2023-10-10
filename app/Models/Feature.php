@@ -18,7 +18,11 @@ class Feature extends Model
    
     public function apartaments()
     {
-        return $this->belongsToMany(Apartament::class,'apartament_feature');
+        return $this->belongsToMany(Apartament::class);
     }
+    
+
+
+
 
 }

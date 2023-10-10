@@ -6,73 +6,46 @@ import React, { useState, useEffect } from 'react';
 var myId = "";
 
 const ChildTwo = (props) => {
+  const [featuresapartaments, setFeaturesApartaments] = useState([]);
   const [features, setFeatures] = useState([]);
   if (props.id != myId) {
     myId = props.id;
     // Endpoints connection single 
-	// let data=[1,2,3,4,5];
 	 let json=JSON.stringify(props.id);
 	
 	
     axios.get(
       'http://127.0.0.1:8000/api/apartamentsfeature/' + json
     ).then(response => {
-      const products = response.data
-      setFeatures(products)
+      const apartaments = response.data
+      setFeaturesApartaments(apartaments)
     })
+
+
   }
 
   return (
 		<div class="container">
 			{props.id}
 				<div class="row">
-				{features.map((feature) => (
+				{apartaments.map((apartament) => (
 						<div class="col-md-3">
-						<p>{feature.title}</p>
+						<p>{apartament.title}</p>
 						<div class="property-slider">
-								<img src="http://127.0.0.1:8000/storage/img/img_1.jpg" alt="Image" class="img-fluid" />
+								<img src={apartament.image} alt="Image" class="img-fluid" />
 								<div class="property-content">
 										<div class="price mb-2">
-											<span>$1,291,000</span>
+											<span>{apartament.description}</span>
 										</div>
-										<span class="d-block mb-2 text-black-50">5232 California Fake, Ave. 21BC</span>
+										<span class="d-block mb-2 text-black-50"> </span>
 										<b>Items</b>
 											<div class="container">
 													<div class="row">
-															<div class="col-md-4">
-																<span class="caption">
-																	 <p>#algo</p>
-																</span>
-															</div>
-															<div  class="col-md-4">
-																<span class="caption">
-																	<p>2 baths</p>
-																</span>
-															</div>
-															<div  class="col-md-4">
-																<span class="caption">
-																	<p>2 baths</p>
-																</span>
-															</div>	
-															<div class="col-md-4">
-																<span class="caption">
-																	<p>#algo</p>
-																</span>
-															</div>
-															<div  class="col-md-4">
-																<span class="caption">
-																	<p>2 baths</p>
-																</span>
-															</div>
-															<div  class="col-md-4">
-																<span class="caption">
-																	<p>2 baths</p>
-																</span>
-															</div>	
+															{/* <ChildTree id={features.id}/>				 */}
 														</div>
 													</div>
 												<div class="mt-4 ml-10" >
-													<a href="property-single.html" class="btn btn-house ">See details</a>
+													<a onClick={handleDownload}  class="btn btn-house ">reserve</a>
 												</div>		
 											</div>
 									</div>

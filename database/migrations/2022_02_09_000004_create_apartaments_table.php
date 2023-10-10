@@ -17,6 +17,7 @@ class CreateApartamentsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
+            $table->string('image');
             $table->boolean('reserved');
             $table->unsignedBigInteger('landlord_id');
             // define foreign key

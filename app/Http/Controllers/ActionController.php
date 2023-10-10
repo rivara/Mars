@@ -32,11 +32,8 @@ class ActionController extends Controller
        $collection = collect([]);
 
         for($i=0; $i < count($features); $i++){
-           //$features[$i]->apartaments;
            $collection = $collection->concat($features[$i]->apartaments);
         }
-        
-        
    
        return response()->json($collection);
     }
