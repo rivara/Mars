@@ -1,37 +1,49 @@
 import React, { useState, useEffect } from 'react';
-import Part3  from "./Action3";
 // Endpoints connection
 
 function send(){
-	alert("ss");
+	alert("se manda la reserva a bd");
 }
 
 
-var myId = "";
 const ChildTwo = (props) => {
-  const [apartaments, setApartaments] = useState([]);
-  if (props.id != myId) {
-	
-    myId = props.id;
-    // Endpoints connection single 
-	 let json=JSON.stringify(props.id);
-    axios.get(
-      'http://127.0.0.1:8000/api/apartamentsfeature/'+json
-    ).then(response => {
-      const apartaments = response.data
-      setApartaments(apartaments)
-    })
-	
-  }
+const [apartaments, setApartaments] = useState([]);
+const [filteredApartaments, setFilteredApartaments] = useState([]);
+const fullUrl = window.location.href;
+const url = new URL(fullUrl);
+const baseUrl = `${url.protocol}//${url.hostname}`;
+
+
+useEffect(() => {
+    // Fetch all apartments
+    axios.get(baseUrl+'/api/apartaments/')
+      .then(response => {
+        const apartaments = response.data;
+        setApartaments(apartaments);
+        const filtered = apartaments.filter(apartament =>
+          apartament.features && apartament.features.some(feature => feature.id === Number(props.id))
+        );
+
+        setFilteredApartaments(filtered);
+      })
+      .catch(error => {
+        console.error("Error fetching apartments:", error);
+      });
+  }, [props.id]);
+
+
+
+
 
   return (
 	<div class="container">
 		<div class="row">
-				{apartaments.map((apartament) => (
+				{filteredApartaments.map((apartament) => (
 						<div class="col-md-3 property-item">
 								<div class="property-slider-wrap" >
 										<div class="property-slider">
-											<img src={apartament.image} alt="Image" class="img-fluid" />
+                                        <img src={`${baseUrl}${apartament.image}`} alt="Apartment" className="img-fluid" />
+
 											<div class="property-content">
 												<div class="price mb-2">
 													<span>{apartament.description}</span>
@@ -40,16 +52,19 @@ const ChildTwo = (props) => {
 												<b>Items</b>
 												<div class="container">
 													<div class="row">
-														<Part3 id={apartament.id} />
+                                                        {apartament.features.map((feature) => (
+                                                            <li key={feature.id}>{feature.name}</li>
+                                                        ))}
+
 													</div>
-												</div>	
+												</div>
 												<div class="mt-4 ml-10" >
 													<a onClick={send}  class="btn btn-house">reserve</a>
 												</div>
 											</div>
 										</div>
 								</div>
-						</div>			 
+						</div>
 						))}
 			</div>
 	</div>

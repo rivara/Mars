@@ -18,30 +18,11 @@ class ActionController extends Controller
 
     public function apartament()
     {
-        $apartaments = Apartament::all();
-        return response()->json($apartaments);
-    }
-
-
-    public function showApartament($id)
-    {
-
-        $idsRaw = implode(",", json_decode($id));
-        $ids = array_map('intval', explode(',', $idsRaw));
-
-        $features = Feature::find([$ids]);
-        $collection = collect([]);
-        for ($i = 0; $i < count($features); $i++) {
-            $collection = $collection->concat($features[$i]->apartaments);
+        try {
+            $apartaments = Apartament::with('features')->get();
+            return response()->json($apartaments);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error al obtener los apartamentos'], 500);
         }
-        return response()->json($collection->unique('id')->all());
-    }
-
-
-
-    public function showFeature($id)
-    {
-        $apartament = Apartament::find($id);
-        return response()->json($apartament->features);
     }
 }

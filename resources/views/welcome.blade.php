@@ -5,15 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-        
+
         <!-- Scripts -->
         @viteReactRefresh
-        @vite(['resources/sass/app.scss', 'resources/js/app.js','resources/css/app.css'])
+        @vite(['resources/sass/app.scss', 'resources/js/app.jsx','resources/css/app.css'])
     </head>
     <body>
     <nav class="navbar navbar-expand-md navbar-light ">
             <!-- Left Side Of Navbar -->
-            
+
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
@@ -50,12 +50,13 @@
                 @endguest
             </ul>
         </nav>
-         <div id="hero">
-                <section class="d-flex flex-column justify-content-center align-items-center" >
-                    <div class="container text-center"  data-aos="fade-up">
-                        <h1>Welcome </h1>
-                    </div>
-                </section>
-          </div>   
+        <div class="background-container">
+            <div class="overlay">
+                <header class="header">
+                    <h1>Bienvenido </h1>
+                </header>
+            </div>
+        </div>
+
     </body>
 </html>

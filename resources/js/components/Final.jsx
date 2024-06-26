@@ -14,9 +14,9 @@ const Final = () => {
                 <Part1 onSelectedValuesChange={handleChildValueChange} />
             </div>
 
-            <div class="col-md-12 mt-3"> 
+            <div class="col-md-12 mt-3">
                 <Part2 id={selectedValues}/>
-            </div>       
+            </div>
           </div>
       </div>
   );

@@ -15,12 +15,12 @@ class Feature extends Model
         'mail',
     ];
 
-   
+
     public function apartaments()
     {
-        return $this->belongsToMany(Apartament::class);
+        return $this->belongsToMany(Apartament::class,'apartament_feature');
     }
-    
+
 
 
 

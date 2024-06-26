@@ -18,11 +18,14 @@ class Apartament extends Model
 
     public function features()
     {
-        return $this->belongsToMany(Feature::class);
+        return $this->belongsToMany(Feature::class, 'apartament_feature');
+
     }
 
     public function landLord()
     {
         return $this->hasOne(landLord::class);
     }
+
+
 }
